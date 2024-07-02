@@ -1,0 +1,152 @@
+<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.roblox.com/roblox.xsd" version="4">
+	<External>null</External>
+	<External>nil</External>
+	<Item class="Part" referent="RBX0">
+		<Properties>
+			<bool name="Anchored">false</bool>
+			<float name="BackParamA">-0.5</float>
+			<float name="BackParamB">0.5</float>
+			<token name="BackSurface">0</token>
+			<token name="BackSurfaceInput">0</token>
+			<float name="BottomParamA">-0.5</float>
+			<float name="BottomParamB">0.5</float>
+			<token name="BottomSurface">0</token>
+			<token name="BottomSurfaceInput">0</token>
+			<int name="BrickColor">24</int>
+			<CoordinateFrame name="CFrame">
+				<X>19.5</X>
+				<Y>2.9000001</Y>
+				<Z>-50.5</Z>
+				<R00>-2.04091882e-010</R00>
+				<R01>-6.96475655e-011</R01>
+				<R02>1</R02>
+				<R10>-3.26260855e-013</R10>
+				<R11>1</R11>
+				<R12>-6.96475655e-011</R12>
+				<R20>-1</R20>
+				<R21>3.26260855e-013</R21>
+				<R22>2.04091882e-010</R22>
+			</CoordinateFrame>
+			<bool name="CanCollide">true</bool>
+			<token name="Controller">0</token>
+			<bool name="ControllerFlagShown">true</bool>
+			<bool name="DraggingV1">false</bool>
+			<float name="Elasticity">0.5</float>
+			<token name="FormFactor">0</token>
+			<float name="Friction">0.300000012</float>
+			<float name="FrontParamA">-0.5</float>
+			<float name="FrontParamB">0.5</float>
+			<token name="FrontSurface">0</token>
+			<token name="FrontSurfaceInput">0</token>
+			<float name="LeftParamA">-0.5</float>
+			<float name="LeftParamB">0.5</float>
+			<token name="LeftSurface">0</token>
+			<token name="LeftSurfaceInput">0</token>
+			<bool name="Locked">false</bool>
+			<string name="Name">BallMan</string>
+			<float name="Reflectance">0</float>
+			<float name="RightParamA">-0.5</float>
+			<float name="RightParamB">0.5</float>
+			<token name="RightSurface">0</token>
+			<token name="RightSurfaceInput">0</token>
+			<Vector3 name="RotVelocity">
+				<X>0</X>
+				<Y>0</Y>
+				<Z>0</Z>
+			</Vector3>
+			<float name="TopParamA">-0.5</float>
+			<float name="TopParamB">0.5</float>
+			<token name="TopSurface">0</token>
+			<token name="TopSurfaceInput">0</token>
+			<float name="Transparency">0</float>
+			<Vector3 name="Velocity">
+				<X>0</X>
+				<Y>0</Y>
+				<Z>0</Z>
+			</Vector3>
+			<bool name="archivable">true</bool>
+			<token name="shape">0</token>
+			<Vector3 name="size">
+				<X>5</X>
+				<Y>5</Y>
+				<Z>5</Z>
+			</Vector3>
+		</Properties>
+		<Item class="Decal" referent="RBX1">
+			<Properties>
+				<token name="Face">0</token>
+				<string name="Name">Face</string>
+				<float name="Shiny">20</float>
+				<float name="Specular">0</float>
+				<Content name="Texture"><url>rbxasset://textures/face.png</url></Content>
+				<bool name="archivable">true</bool>
+			</Properties>
+		</Item>
+		<Item class="ClickDetector" referent="RBX2">
+			<Properties>
+				<bool name="FrontendMouseClick">false</bool>
+				<float name="MaxActivationDistance">32</float>
+				<string name="Name">ClickDetector</string>
+				<bool name="archivable">true</bool>
+			</Properties>
+		</Item>
+		<Item class="Script" referent="RBX3">
+			<Properties>
+				<bool name="Disabled">false</bool>
+				<Content name="LinkedSource"><null></null></Content>
+				<string name="Name">Script</string>
+				<string name="Source">-- Zork and Tobu did this :)
+local debounce = false
+
+
+function onClicked()
+	if debounce == true then return end
+	debounce = true
+	local randomNumber = math.random(1, 3)
+	local SoundName = string.format(&quot;Mad%d&quot;, randomNumber)
+	script.Parent.Face.Texture = &quot;http://assets.realja.me/Battle/madface.png&quot;
+	script.Parent[SoundName]:Play()
+	wait(3)
+	script.Parent.Face.Texture = &quot;rbxasset://textures/face.png&quot;
+	debounce = false
+end
+
+script.Parent.ClickDetector.MouseClick:connect(onClicked)</string>
+				<bool name="archivable">true</bool>
+			</Properties>
+		</Item>
+		<Item class="Sound" referent="RBX4">
+			<Properties>
+				<bool name="Looped">false</bool>
+				<string name="Name">Mad1</string>
+				<int name="PlayCount">-1</int>
+				<bool name="PlayOnRemove">false</bool>
+				<Content name="SoundId"><url>http://assets.realja.me/Battle/Mad1.mp3</url></Content>
+				<float name="Volume">1</float>
+				<bool name="archivable">true</bool>
+			</Properties>
+		</Item>
+		<Item class="Sound" referent="RBX5">
+			<Properties>
+				<bool name="Looped">false</bool>
+				<string name="Name">Mad2</string>
+				<int name="PlayCount">-1</int>
+				<bool name="PlayOnRemove">false</bool>
+				<Content name="SoundId"><url>http://assets.realja.me/Battle/Mad2.mp3</url></Content>
+				<float name="Volume">1</float>
+				<bool name="archivable">true</bool>
+			</Properties>
+		</Item>
+		<Item class="Sound" referent="RBX6">
+			<Properties>
+				<bool name="Looped">false</bool>
+				<string name="Name">Mad3</string>
+				<int name="PlayCount">-1</int>
+				<bool name="PlayOnRemove">false</bool>
+				<Content name="SoundId"><url>http://assets.realja.me/Battle/Mad3.mp3</url></Content>
+				<float name="Volume">1</float>
+				<bool name="archivable">true</bool>
+			</Properties>
+		</Item>
+	</Item>
+</roblox>
