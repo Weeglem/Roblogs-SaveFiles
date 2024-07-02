@@ -1,0 +1,638 @@
+<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.roblox.com/roblox.xsd" version="4">
+	<External>null</External>
+	<External>nil</External>
+	<Item class="Model" referent="RBX0">
+		<Properties>
+			<CoordinateFrame name="ModelInPrimary">
+				<X>0</X>
+				<Y>0</Y>
+				<Z>0</Z>
+				<R00>1</R00>
+				<R01>0</R01>
+				<R02>0</R02>
+				<R10>0</R10>
+				<R11>1</R11>
+				<R12>0</R12>
+				<R20>0</R20>
+				<R21>0</R21>
+				<R22>1</R22>
+			</CoordinateFrame>
+			<string name="Name">Model</string>
+			<Ref name="PrimaryPart">null</Ref>
+			<bool name="archivable">true</bool>
+		</Properties>
+		<Item class="Model" referent="RBX1">
+			<Properties>
+				<CoordinateFrame name="ModelInPrimary">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+					<R00>1</R00>
+					<R01>0</R01>
+					<R02>0</R02>
+					<R10>0</R10>
+					<R11>1</R11>
+					<R12>0</R12>
+					<R20>0</R20>
+					<R21>0</R21>
+					<R22>1</R22>
+				</CoordinateFrame>
+				<string name="Name">Super Jump Tool Giver</string>
+				<Ref name="PrimaryPart">null</Ref>
+				<bool name="archivable">true</bool>
+			</Properties>
+			<Item class="Part" referent="RBX2">
+				<Properties>
+					<bool name="Anchored">true</bool>
+					<float name="BackParamA">-0.5</float>
+					<float name="BackParamB">0.5</float>
+					<token name="BackSurface">0</token>
+					<token name="BackSurfaceInput">0</token>
+					<float name="BottomParamA">-0.5</float>
+					<float name="BottomParamB">0.5</float>
+					<token name="BottomSurface">0</token>
+					<token name="BottomSurfaceInput">0</token>
+					<int name="BrickColor">1003</int>
+					<CoordinateFrame name="CFrame">
+						<X>-149.5</X>
+						<Y>5</Y>
+						<Z>-177.5</Z>
+						<R00>0</R00>
+						<R01>0</R01>
+						<R02>-1</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>-0</R12>
+						<R20>1</R20>
+						<R21>0</R21>
+						<R22>-0</R22>
+					</CoordinateFrame>
+					<bool name="CanCollide">true</bool>
+					<bool name="DraggingV1">false</bool>
+					<float name="Elasticity">0.5</float>
+					<token name="FormFactor">1</token>
+					<float name="Friction">0.300000012</float>
+					<float name="FrontParamA">-0.5</float>
+					<float name="FrontParamB">0.5</float>
+					<token name="FrontSurface">0</token>
+					<token name="FrontSurfaceInput">0</token>
+					<float name="LeftParamA">-0.5</float>
+					<float name="LeftParamB">0.5</float>
+					<token name="LeftSurface">0</token>
+					<token name="LeftSurfaceInput">0</token>
+					<bool name="Locked">false</bool>
+					<token name="Material">256</token>
+					<string name="Name">PUT THE WEAPON IN THIS BRICK</string>
+					<float name="Reflectance">0</float>
+					<float name="RightParamA">-0.5</float>
+					<float name="RightParamB">0.5</float>
+					<token name="RightSurface">0</token>
+					<token name="RightSurfaceInput">0</token>
+					<Vector3 name="RotVelocity">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+					</Vector3>
+					<float name="TopParamA">-0.5</float>
+					<float name="TopParamB">0.5</float>
+					<token name="TopSurface">0</token>
+					<token name="TopSurfaceInput">0</token>
+					<float name="Transparency">0</float>
+					<Vector3 name="Velocity">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+					</Vector3>
+					<bool name="archivable">true</bool>
+					<token name="shape">1</token>
+					<Vector3 name="size">
+						<X>1</X>
+						<Y>1.20000005</Y>
+						<Z>5</Z>
+					</Vector3>
+				</Properties>
+				<Item class="Script" referent="RBX3">
+					<Properties>
+						<bool name="Disabled">false</bool>
+						<Content name="LinkedSource"><null></null></Content>
+						<string name="Name">PresentScript</string>
+						<ProtectedString name="Source">local debounce = false
+
+function getPlayer(humanoid) 
+local players = game.Players:children() 
+for i = 1, #players do 
+if players[i].Character.Humanoid == humanoid then return players[i] end 
+end 
+return nil 
+end 
+
+function onTouch(part) 
+
+local human = part.Parent:findFirstChild(&quot;Humanoid&quot;) 
+if (human ~= nil) and debounce == false then
+
+debounce = true
+
+local player = getPlayer(human) 
+
+if (player == nil) then return end 
+
+script.Parent.SuperJump:clone().Parent = player.Backpack
+
+wait(2)
+debounce = false
+end
+end
+
+
+script.Parent.Touched:connect(onTouch) 
+</ProtectedString>
+						<bool name="archivable">true</bool>
+					</Properties>
+				</Item>
+				<Item class="HopperBin" referent="RBX4">
+					<Properties>
+						<bool name="Active">false</bool>
+						<token name="BinType">0</token>
+						<string name="Name">SuperJump</string>
+						<Content name="TextureId"><null></null></Content>
+						<bool name="archivable">true</bool>
+					</Properties>
+					<Item class="Script" referent="RBX5">
+						<Properties>
+							<bool name="Disabled">false</bool>
+							<Content name="LinkedSource"><null></null></Content>
+							<string name="Name">Ghostwalk</string>
+							<ProtectedString name="Source">print(&quot;Ghostwalker loaded&quot;)
+
+bin = script.Parent
+
+walking = false
+reloadtime = 0
+
+local thrust = Instance.new(&quot;BodyVelocity&quot;)
+
+function makeMeGhostly(trans)
+	local char = game.Players.LocalPlayer.Character
+
+	if char.Head ~= nil then char.Head.Transparency = trans end
+	if char.Torso ~= nil then char.Torso.Transparency = trans end
+
+	local leftleg = char:findFirstChild(&quot;Left Leg&quot;)
+	if leftleg ~= nil then leftleg.Transparency = trans end
+
+	local rightleg = char:findFirstChild(&quot;Right Leg&quot;)
+	if rightleg ~= nil then rightleg.Transparency = trans end
+
+	local leftarm = char:findFirstChild(&quot;Left Arm&quot;)
+	if leftarm ~= nil then leftarm.Transparency = trans end
+
+	local rightarm = char:findFirstChild(&quot;Right Arm&quot;)
+	if rightarm ~= nil then rightarm.Transparency = trans end
+end
+
+function onStart()
+	print(&quot;start walking&quot;)
+	walking = true
+	reloadtime = 0.0
+	makeMeGhostly(0)
+	
+	thrust.Parent = game.Players.LocalPlayer.Character.PrimaryPart
+	
+	thrust.velocity = Vector3.new(0,50,0)
+	thrust.maxForce = Vector3.new(0,4e+050,0) 
+	
+
+
+end
+
+function onEnd()
+	print(&quot;stop walking&quot;)
+	walking = false
+	makeMeGhostly(0)
+	thrust.Parent = nil
+	wait(reloadtime)
+	reloadtime = 0
+end
+
+function onButton1Down(mouse)
+	if reloadtime &gt; 0 then return end
+	if walking == true then return end
+	
+	onStart()
+	mouse.Icon = &quot;rbxasset://textures\\ArrowFarCursor.png&quot;
+
+	local time = 0
+	while walking == true do
+		--onWalk()
+		wait(.05)
+		time = time + .05
+		if time &gt; 0.6 then onButton1Up(mouse) end
+	end
+end
+
+function onButton1Up(mouse)
+	onEnd()
+	mouse.Icon = &quot;rbxasset://textures\\ArrowCursor.png&quot;
+end
+
+function onSelected(mouse)
+	print(&quot;ghostwalker selected&quot;)
+	if reloadtime &gt; 0 then
+		mouse.Icon = &quot;rbxasset://textures\\ArrowFarCursor.png&quot;
+	else
+		mouse.Icon = &quot;rbxasset://textures\\ArrowCursor.png&quot;
+	end
+	mouse.Button1Down:connect(function() onButton1Down(mouse) end)
+	mouse.Button1Up:connect(function() onButton1Up(mouse) end)
+end
+
+bin.Selected:connect(onSelected)
+
+
+
+
+</ProtectedString>
+							<bool name="archivable">true</bool>
+						</Properties>
+					</Item>
+				</Item>
+			</Item>
+			<Item class="Part" referent="RBX6">
+				<Properties>
+					<bool name="Anchored">true</bool>
+					<float name="BackParamA">-0.5</float>
+					<float name="BackParamB">0.5</float>
+					<token name="BackSurface">0</token>
+					<token name="BackSurfaceInput">0</token>
+					<float name="BottomParamA">-0.5</float>
+					<float name="BottomParamB">0.5</float>
+					<token name="BottomSurface">0</token>
+					<token name="BottomSurfaceInput">0</token>
+					<int name="BrickColor">141</int>
+					<CoordinateFrame name="CFrame">
+						<X>-149.5</X>
+						<Y>6</Y>
+						<Z>-175</Z>
+						<R00>-0</R00>
+						<R01>0</R01>
+						<R02>1</R02>
+						<R10>-0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>-1</R20>
+						<R21>0</R21>
+						<R22>0</R22>
+					</CoordinateFrame>
+					<bool name="CanCollide">true</bool>
+					<bool name="DraggingV1">false</bool>
+					<float name="Elasticity">0.5</float>
+					<token name="FormFactor">1</token>
+					<float name="Friction">0.300000012</float>
+					<float name="FrontParamA">-0.5</float>
+					<float name="FrontParamB">0.5</float>
+					<token name="FrontSurface">0</token>
+					<token name="FrontSurfaceInput">0</token>
+					<float name="LeftParamA">-0.5</float>
+					<float name="LeftParamB">0.5</float>
+					<token name="LeftSurface">0</token>
+					<token name="LeftSurfaceInput">0</token>
+					<bool name="Locked">false</bool>
+					<token name="Material">256</token>
+					<string name="Name">Smooth Block Model</string>
+					<float name="Reflectance">0.400000006</float>
+					<float name="RightParamA">-0.5</float>
+					<float name="RightParamB">0.5</float>
+					<token name="RightSurface">0</token>
+					<token name="RightSurfaceInput">0</token>
+					<Vector3 name="RotVelocity">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+					</Vector3>
+					<float name="TopParamA">-0.5</float>
+					<float name="TopParamB">0.5</float>
+					<token name="TopSurface">0</token>
+					<token name="TopSurfaceInput">0</token>
+					<float name="Transparency">0</float>
+					<Vector3 name="Velocity">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+					</Vector3>
+					<bool name="archivable">true</bool>
+					<token name="shape">1</token>
+					<Vector3 name="size">
+						<X>4</X>
+						<Y>7.20000029</Y>
+						<Z>5</Z>
+					</Vector3>
+				</Properties>
+			</Item>
+		</Item>
+		<Item class="Model" referent="RBX7">
+			<Properties>
+				<CoordinateFrame name="ModelInPrimary">
+					<X>0</X>
+					<Y>0</Y>
+					<Z>0</Z>
+					<R00>1</R00>
+					<R01>0</R01>
+					<R02>0</R02>
+					<R10>0</R10>
+					<R11>1</R11>
+					<R12>0</R12>
+					<R20>0</R20>
+					<R21>0</R21>
+					<R22>1</R22>
+				</CoordinateFrame>
+				<string name="Name">Super Fly Tool Giver</string>
+				<Ref name="PrimaryPart">null</Ref>
+				<bool name="archivable">true</bool>
+			</Properties>
+			<Item class="Part" referent="RBX8">
+				<Properties>
+					<bool name="Anchored">true</bool>
+					<float name="BackParamA">-0.5</float>
+					<float name="BackParamB">0.5</float>
+					<token name="BackSurface">0</token>
+					<token name="BackSurfaceInput">0</token>
+					<float name="BottomParamA">-0.5</float>
+					<float name="BottomParamB">0.5</float>
+					<token name="BottomSurface">4</token>
+					<token name="BottomSurfaceInput">0</token>
+					<int name="BrickColor">45</int>
+					<CoordinateFrame name="CFrame">
+						<X>-154.5</X>
+						<Y>6</Y>
+						<Z>-175</Z>
+						<R00>-0</R00>
+						<R01>0</R01>
+						<R02>1</R02>
+						<R10>-0</R10>
+						<R11>1</R11>
+						<R12>0</R12>
+						<R20>-1</R20>
+						<R21>0</R21>
+						<R22>0</R22>
+					</CoordinateFrame>
+					<bool name="CanCollide">true</bool>
+					<bool name="DraggingV1">false</bool>
+					<float name="Elasticity">0.5</float>
+					<token name="FormFactor">1</token>
+					<float name="Friction">0.300000012</float>
+					<float name="FrontParamA">-0.5</float>
+					<float name="FrontParamB">0.5</float>
+					<token name="FrontSurface">0</token>
+					<token name="FrontSurfaceInput">0</token>
+					<float name="LeftParamA">-0.5</float>
+					<float name="LeftParamB">0.5</float>
+					<token name="LeftSurface">0</token>
+					<token name="LeftSurfaceInput">0</token>
+					<bool name="Locked">false</bool>
+					<token name="Material">256</token>
+					<string name="Name">Smooth Block Model</string>
+					<float name="Reflectance">0.400000006</float>
+					<float name="RightParamA">-0.5</float>
+					<float name="RightParamB">0.5</float>
+					<token name="RightSurface">0</token>
+					<token name="RightSurfaceInput">0</token>
+					<Vector3 name="RotVelocity">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+					</Vector3>
+					<float name="TopParamA">-0.5</float>
+					<float name="TopParamB">0.5</float>
+					<token name="TopSurface">0</token>
+					<token name="TopSurfaceInput">0</token>
+					<float name="Transparency">0</float>
+					<Vector3 name="Velocity">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+					</Vector3>
+					<bool name="archivable">true</bool>
+					<token name="shape">1</token>
+					<Vector3 name="size">
+						<X>4</X>
+						<Y>7.20000029</Y>
+						<Z>5</Z>
+					</Vector3>
+				</Properties>
+			</Item>
+			<Item class="Part" referent="RBX9">
+				<Properties>
+					<bool name="Anchored">true</bool>
+					<float name="BackParamA">-0.5</float>
+					<float name="BackParamB">0.5</float>
+					<token name="BackSurface">0</token>
+					<token name="BackSurfaceInput">0</token>
+					<float name="BottomParamA">-0.5</float>
+					<float name="BottomParamB">0.5</float>
+					<token name="BottomSurface">4</token>
+					<token name="BottomSurfaceInput">0</token>
+					<int name="BrickColor">1003</int>
+					<CoordinateFrame name="CFrame">
+						<X>-154.5</X>
+						<Y>5</Y>
+						<Z>-177.5</Z>
+						<R00>0</R00>
+						<R01>0</R01>
+						<R02>-1</R02>
+						<R10>0</R10>
+						<R11>1</R11>
+						<R12>-0</R12>
+						<R20>1</R20>
+						<R21>0</R21>
+						<R22>-0</R22>
+					</CoordinateFrame>
+					<bool name="CanCollide">true</bool>
+					<bool name="DraggingV1">false</bool>
+					<float name="Elasticity">0.5</float>
+					<token name="FormFactor">1</token>
+					<float name="Friction">0.300000012</float>
+					<float name="FrontParamA">-0.5</float>
+					<float name="FrontParamB">0.5</float>
+					<token name="FrontSurface">0</token>
+					<token name="FrontSurfaceInput">0</token>
+					<float name="LeftParamA">-0.5</float>
+					<float name="LeftParamB">0.5</float>
+					<token name="LeftSurface">0</token>
+					<token name="LeftSurfaceInput">0</token>
+					<bool name="Locked">false</bool>
+					<token name="Material">256</token>
+					<string name="Name">PUT THE WEAPON IN THIS BRICK</string>
+					<float name="Reflectance">0</float>
+					<float name="RightParamA">-0.5</float>
+					<float name="RightParamB">0.5</float>
+					<token name="RightSurface">0</token>
+					<token name="RightSurfaceInput">0</token>
+					<Vector3 name="RotVelocity">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+					</Vector3>
+					<float name="TopParamA">-0.5</float>
+					<float name="TopParamB">0.5</float>
+					<token name="TopSurface">0</token>
+					<token name="TopSurfaceInput">0</token>
+					<float name="Transparency">0</float>
+					<Vector3 name="Velocity">
+						<X>0</X>
+						<Y>0</Y>
+						<Z>0</Z>
+					</Vector3>
+					<bool name="archivable">true</bool>
+					<token name="shape">1</token>
+					<Vector3 name="size">
+						<X>1</X>
+						<Y>1.20000005</Y>
+						<Z>5</Z>
+					</Vector3>
+				</Properties>
+				<Item class="HopperBin" referent="RBX10">
+					<Properties>
+						<bool name="Active">false</bool>
+						<token name="BinType">0</token>
+						<string name="Name">Super Fly</string>
+						<Content name="TextureId"><null></null></Content>
+						<bool name="archivable">true</bool>
+					</Properties>
+					<Item class="Script" referent="RBX11">
+						<Properties>
+							<bool name="Disabled">false</bool>
+							<Content name="LinkedSource"><null></null></Content>
+							<string name="Name">FlyScript</string>
+							<ProtectedString name="Source">local power = 15 
+wait() 
+bin = script.Parent 
+bpos = Instance.new(&quot;BodyPosition&quot;) 
+gyro = Instance.new(&quot;BodyGyro&quot;) 
+gyro.maxTorque = Vector3.new(math.huge,math.huge,math.huge) 
+bpos.maxForce = Vector3.new(math.huge,math.huge,math.huge) 
+fly = false 
+player = game.Players.LocalPlayer 
+char = player.Character.Torso 
+airborne = false 
+
+function onButton1Down(mouse) 
+fly = true 
+while fly do 
+pos = mouse.Hit.p 
+--gyro.cframe = CFrame.new(char.Position,pos) 
+bpos.position = char.Position + (pos-char.Position).unit * power 
+wait() 
+end 
+end 
+
+function onMove(mouse) 
+pos = mouse.Hit.p 
+gyro.cframe = CFrame.new(char.Position,pos) * CFrame.fromEulerAnglesXYZ(-3.14/2+1.2,0,0) 
+--bpos.position = char.Position + 
+--wait() 
+--end 
+end 
+
+function onButton1Up(mouse) 
+fly = false 
+end 
+
+function onSelected(mouse) 
+print(&quot;select&quot;) 
+if mouse == nil then 
+return 
+end 
+airborne = true 
+bpos.Parent = char 
+bpos.position = char.Position + Vector3.new(0,10,0) 
+gyro.Parent = char 
+char.Parent.Humanoid.Sit = true 
+mouse.Icon = &quot;http://www.roblox.com/asset/?id=4941056&quot; 
+mouse.Button1Down:connect(function() onButton1Down(mouse) end) 
+mouse.Button1Up:connect(function() onButton1Up(mouse) end) 
+mouse.Move:connect(function() onMove(mouse) end) 
+
+for i, v in ipairs(char:GetChildren()) do 
+if v.className == &quot;Motor&quot; then 
+v.MaxVelocity = 0 
+v.CurrentAngle = -1 
+if v.Name == &quot;Left Hip&quot; then 
+v.CurrentAngle = 1 
+end 
+end 
+end 
+end 
+
+function onDeselected(mouse) 
+print(&quot;deselect&quot;) 
+gyro.Parent = nil 
+fly = false 
+airborne = false 
+for i, v in ipairs(char:GetChildren()) do 
+if v.className == &quot;Motor&quot; then 
+v.MaxVelocity = 1 
+end 
+end 
+char.Parent.Humanoid.Sit = false 
+for i = 1, 30 do 
+if not airborne then 
+bpos.position = bpos.position - Vector3.new(0,0.3,0) 
+wait(0.1) 
+end 
+end 
+if not airborne then 
+bpos.Parent = nil 
+end 
+end 
+
+
+bin.Selected:connect(onSelected) 
+bin.Deselected:connect(onDeselected)</ProtectedString>
+							<bool name="archivable">true</bool>
+						</Properties>
+					</Item>
+					<Item class="Script" referent="RBX12">
+						<Properties>
+							<bool name="Disabled">false</bool>
+							<Content name="LinkedSource"><null></null></Content>
+							<string name="Name">PUT THIS IN THE WEAPON</string>
+							<ProtectedString name="Source">local debounce = false
+
+function getPlayer(humanoid) 
+local players = game.Players:children() 
+for i = 1, #players do 
+if players[i].Character.Humanoid == humanoid then return players[i] end 
+end 
+return nil 
+end 
+
+function onTouch(part) 
+
+local human = part.Parent:findFirstChild(&quot;Humanoid&quot;) 
+if (human ~= nil) and debounce == false then
+
+debounce = true
+
+local player = getPlayer(human) 
+
+if (player == nil) then return end 
+
+script.Parent:clone().Parent = player.Backpack
+
+wait(2)
+debounce = false
+end
+end
+
+
+script.Parent.Parent.Touched:connect(onTouch) 
+</ProtectedString>
+							<bool name="archivable">true</bool>
+						</Properties>
+					</Item>
+				</Item>
+			</Item>
+		</Item>
+	</Item>
+</roblox>
